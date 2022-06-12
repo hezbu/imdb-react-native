@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, Flat } from 'react-native'
+import { View, Text, FlatList } from 'react-native'
 import getUpcomingTitles from '../api/rapidApiHub'
 
 const MoviesRepository = () => {
@@ -22,14 +22,16 @@ const MoviesRepository = () => {
     return (
         <View>
             {
-                movies && movies.results.map(item => (
-                    <View key={item.id}>
-                        <Text>{item.titleText.text}</Text>
-                        <Text>Fecha de estreno: {item.releaseDate.day}/{item.releaseDate.month}/{item.releaseDate.year}</Text>
-                    </View>
-                ))
+                movies && <FlatList
+                    data={movies.results}
+                    renderItem={({item}) => (
+                        <View key={item.id}>
+                            <Text>{item.titleText.text}</Text>
+                            <Text>Fecha de estreno: {item.releaseDate.day}/{item.releaseDate.month}/{item.releaseDate.year}</Text>
+                        </View>
+                    )}
+                />
             }
-
         </View>
     )
 }
