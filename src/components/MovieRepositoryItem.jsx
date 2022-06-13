@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import StyledText from './StyledText'
 
 const styles = StyleSheet.create({
     container: {
@@ -29,9 +30,9 @@ const MovieRepositoryItem = (props) => {
 
     return (
         <View key={props.id} style={styles.container}>
-            <Text style={styles.strong}>{props.titleText.text}</Text>
-            <Text>Fecha de estreno: {props.releaseDate.day}/{props.releaseDate.month}/{props.releaseDate.year}</Text>
-            <Text>Tipo: {translateType(props.titleType.text)}</Text>
+            <StyledText big bold blue>{props.titleText.text}</StyledText>
+            <StyledText>Fecha de estreno: {props.releaseDate.day}/{props.releaseDate.month}/{props.releaseDate.year}</StyledText>
+            <StyledText>Tipo: {translateType(props.titleType.text)}</StyledText>
         </View>
     )
 }
