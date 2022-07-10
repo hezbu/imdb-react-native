@@ -9,14 +9,16 @@ const theme = {
     },
     fontSizes: {
         body: 14,
-        subHeading: 16,   
+        subHeading: 16, 
+        heading: 20,
+        small: 12  
     },
     fonts: {
         main: 'System'
     },
     fontWeights: {
         normal: '400',
-        bold: '700 '
+        bold: '700'
     }
 }
 

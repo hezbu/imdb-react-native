@@ -4,33 +4,39 @@ import theme from '../theme'
 
 const styles = StyleSheet.create({
     text: {
-        fontSize: 12,
+        fontSize: theme.fonts.small,
+        fontFamily: theme.fonts.main,
+        color: theme.colors.textPrimary,
+        fontWeight: theme.fontWeights.normal
+    },
+    colorPrimary: {
         color: theme.colors.textPrimary
-    },
+    },  
+    colorSecondary: {
+        color: theme.colors.textSecondary
+    }, 
     bold: {
-        fontWeight: 'bold'
-    },
-    blue: {
-        color: '#09f',
+        fontWeight: theme.fontWeights.bold
     },
     big: {
-        fontSize: 20
+        fontSize: theme.fontSizes.heading
     },
+    subheading: {
+        fontSize: theme.fontSizes.subHeading
+    }, 
     small: {
-        fontSize: 10
+        fontSize: theme.fonts.small
     }
 })
 
-const StyledText = ({blue, bold, big, small, children}) => {
+const StyledText = ({children, color, fontSize, fontWeight, style, ...restOfProps}) => {
     const textStyles = [
         styles.text,
-        blue && styles.blue,
-        bold && styles.bold,
-        big && styles.big,
-        small && styles.small
+        color === "primary" && styles.colorPrimary
+        
     ]
     return (
-        <Text style={textStyles}>
+        <Text style={textStyles} {...restOfProps}>
             {children}
         </Text>
     )
