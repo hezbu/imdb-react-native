@@ -1,8 +1,6 @@
 
 node_modules/
 
-src/api/rapidApiHub.js
-
 .expo/web/cache/
 
 .expo/
