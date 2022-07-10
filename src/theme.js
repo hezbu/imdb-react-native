@@ -1,7 +1,7 @@
 const theme = {
     colors: {
         textPrimary: '#FFFFFF',
-        textSecondary: '#B3B3B3',
+        textSecondary: "#4263f5",
         primary: '#121212',
         menuBar: '#181818',
         topGradient: '#404040',

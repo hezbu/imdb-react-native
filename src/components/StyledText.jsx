@@ -21,19 +21,31 @@ const styles = StyleSheet.create({
     big: {
         fontSize: theme.fontSizes.heading
     },
-    subheading: {
+    subHeading: {
         fontSize: theme.fontSizes.subHeading
     }, 
     small: {
         fontSize: theme.fonts.small
+    },
+    textAlignRight: {
+        textAlign: 'right'
+    },
+    textAlignCenter: {
+        textAlign: 'center'
     }
 })
 
-const StyledText = ({children, color, fontSize, fontWeight, style, ...restOfProps}) => {
+const StyledText = ({children, color, align, fontSize, fontWeight, style, ...restOfProps}) => {
     const textStyles = [
         styles.text,
-        color === "primary" && styles.colorPrimary
-        
+        align === "right" && styles.textAlignRight,
+        color === "primary" && styles.colorPrimary,
+        color === "secondary" && styles.colorSecondary,
+        fontSize === "subHeading" && styles.subHeading,
+        fontSize === "small" && styles.small,
+        fontSize === "big" && styles.big,
+        fontWeight === "bold" && styles.bold,
+        style
     ]
     return (
         <Text style={textStyles} {...restOfProps}>

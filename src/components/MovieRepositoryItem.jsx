@@ -1,6 +1,7 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Image, StyleSheet } from 'react-native'
 import StyledText from './StyledText'
+import MovieRepositoryInfoItem from './MovieRepositoryInfoItem'
 
 const styles = StyleSheet.create({
     container: {
@@ -12,27 +13,26 @@ const styles = StyleSheet.create({
         color: '#09f',
         fontWeight: `bold`,
         marginBottom: 5
+    },
+    image: {
+        width: '100%',
+        height: 400,
+        
     }
 })
 
+
 const MovieRepositoryItem = (props) => {
 
-    const translateType = (type) => {
-        switch (type) {
-            case 'Movie': return 'Pelicula';
-            case 'Short': return 'Cortometraje';
-            case 'TV Episode': return 'Episodio de TV';
-            case 'TV Series': return 'Serie';
-            case 'Music Video': return 'Video Musical';
-            default: return type;
-        }
-    }
-
+    
     return (
         <View key={props.id} style={styles.container}>
-            <StyledText big bold blue>{props.titleText.text}</StyledText>
-            <StyledText>Fecha de estreno: {props.releaseDate.day}/{props.releaseDate.month}/{props.releaseDate.year}</StyledText>
-            <StyledText>Tipo: {translateType(props.titleType.text)}</StyledText>
+            {props.primaryImage && <Image 
+            resizeMode={'center'} 
+            style={styles.image} 
+            source={{ uri: props.primaryImage.url}}/>}
+            <StyledText fontSize="big" fontWeight="bold" color="secondary">{props.titleText.text}</StyledText>
+            <MovieRepositoryInfoItem {...props} />
         </View>
     )
 }
